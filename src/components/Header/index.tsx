@@ -1,6 +1,6 @@
 import React from "react";
 import { signOut } from "next-auth/react";
-import styles from "./index.module.css";
+import styles from "./index.module.scss";
 
 export default function Header() {
 	return (
