@@ -13,3 +13,13 @@ export interface ProvidersProps {
 export interface LoaderProps {
 	text: string;
 }
+
+export interface CarouselItem {
+	id: number;
+	title: string;
+	imageUrl: string;
+}
+
+export interface CarouselData {
+	data: CarouselItem[];
+}
