@@ -1,0 +1,28 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #333;
+  color: white;
+}
+
+.appName {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.signOutButton {
+  background-color: #ff5733;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.signOutButton:hover {
+  background-color: #ff4500;
+}
