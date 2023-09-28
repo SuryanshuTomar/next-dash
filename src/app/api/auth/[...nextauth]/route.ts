@@ -6,9 +6,8 @@ const handler = NextAuth({
 	providers: [
 		// Configure the Google authentication provider
 		GoogleProvider({
-			clientId:
-				"931854902239-bd16pe5bbjotuu24ddkls898e8nqg3l5.apps.googleusercontent.com", // Google Client ID obtained from environment variables
-			clientSecret: "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", // Google Client Secret obtained from environment variables
+			clientId: process.env.GOOGLE_CLIENT_ID ?? "", // Google Client ID obtained from environment variables
+			clientSecret: process.env.GOOGLE_CLIENT_SECRET ?? "", // Google Client Secret obtained from environment variables
 		}),
 	],
 });
