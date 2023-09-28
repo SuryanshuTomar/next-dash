@@ -26,7 +26,9 @@ export default function DashboardPage() {
 				<div className={styles.container}>
 					<div className={styles.content}>
 						Dashboard
-						<ThreeDChart />
+						<div>
+							<ThreeDChart />
+						</div>
 					</div>
 				</div>
 			) : (
