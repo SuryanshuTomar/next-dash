@@ -23,3 +23,7 @@ export interface CarouselItem {
 export interface CarouselData {
 	data: CarouselItem[];
 }
+
+export interface CarouselState {
+	items: CarouselItem[];
+}
