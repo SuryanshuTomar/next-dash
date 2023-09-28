@@ -1,3 +1,13 @@
-export default function Home(): JSX.Element {
-	return <main>Hello World!</main>;
+"use client";
+
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+
+export default function Home() {
+	const { push } = useRouter();
+
+	useEffect(() => {
+		push("/login");
+	}, [push]);
+	return null;
 }
