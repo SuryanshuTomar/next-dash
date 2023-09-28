@@ -18,6 +18,7 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body className={inter.className}>
+				{/* Adding All providers for the app through a component */}
 				<Providers>{children}</Providers>
 			</body>
 		</html>
