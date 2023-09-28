@@ -2,6 +2,7 @@
 
 import Loader from "@/components/Loader";
 import Header from "@/components/Header";
+import Sidebar from "@/components/Sidebar";
 import ThreeDChart from "@/components/Charts/ThreedBarChart";
 import CarouselComponent from "@/components/Carousel";
 import React, { useEffect } from "react";
@@ -23,6 +24,7 @@ export default function DashboardPage() {
 
 	useEffect(() => {
 		if (!isAuthenticated) {
+			// Redirect to the login page if the user is not authenticated
 			redirect("/login");
 		}
 	}, [isAuthenticated]);
@@ -42,12 +44,18 @@ export default function DashboardPage() {
 			{isAuthenticated === true && storedSession !== null ? (
 				<div className={styles.container}>
 					<div className={styles.content}>
-						Dashboard
-						<div>
-							<ThreeDChart />
-						</div>
-						<div>
-							<CarouselComponent items={carouselItems} />
+						<Sidebar />
+
+						<div className={styles.main}>
+							<div className={styles.boundary}>
+								<div className={styles.text}>3D Chart</div>
+								<ThreeDChart />
+							</div>
+
+							<div className={styles.boundary}>
+								<div className={styles.text}>Carousel</div>
+								<CarouselComponent items={carouselItems} />
+							</div>
 						</div>
 					</div>
 				</div>
