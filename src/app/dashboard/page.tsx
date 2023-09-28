@@ -1,23 +1,40 @@
 "use client";
 
+import Loader from "@/components/Loader";
+import Header from "@/components/Header";
+import ThreeDChart from "@/components/Charts/ThreedBarChart";
+import CarouselComponent from "@/components/Carousel";
 import React, { useEffect } from "react";
 import { useAppSelector } from "@/store/store";
 import { redirect } from "next/navigation";
+import { fetchCarouselItems } from "@/utils/contentful/client";
+import { addCarouselData, getCarouselItems } from "@/store/carouselSlice";
 import { getAuthSession, getAuthState } from "@/store/authSlice";
-import Loader from "@/components/Loader";
-import Header from "@/components/Header";
+import { useDispatch } from "react-redux";
 import styles from "./page.module.scss";
-import ThreeDChart from "@/components/Charts/ThreedBarChart";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 export default function DashboardPage() {
+	const dispatch = useDispatch();
+
 	const isAuthenticated = useAppSelector(getAuthState);
 	const storedSession = useAppSelector(getAuthSession);
+	const carouselItems = useAppSelector(getCarouselItems);
 
 	useEffect(() => {
 		if (!isAuthenticated) {
 			redirect("/login");
 		}
 	}, [isAuthenticated]);
+
+	useEffect(() => {
+		async function fetchAndSetCarouselItems() {
+			const items = await fetchCarouselItems();
+			dispatch(addCarouselData(items));
+		}
+
+		fetchAndSetCarouselItems();
+	}, [dispatch]);
 
 	return (
 		<div>
@@ -28,6 +45,9 @@ export default function DashboardPage() {
 						Dashboard
 						<div>
 							<ThreeDChart />
+						</div>
+						<div>
+							<CarouselComponent items={carouselItems} />
 						</div>
 					</div>
 				</div>
