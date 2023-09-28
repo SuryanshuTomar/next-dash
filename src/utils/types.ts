@@ -9,3 +9,7 @@ export interface AuthState {
 export interface ProvidersProps {
 	children: ReactNode;
 }
+
+export interface LoaderProps {
+	text: string;
+}
