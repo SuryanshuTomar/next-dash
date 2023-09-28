@@ -10,6 +10,7 @@
 	},
 	"dependencies": {
 		"@reduxjs/toolkit": "^1.9.6",
+		"contentful": "^10.5.3",
 		"echarts": "^5.4.3",
 		"echarts-gl": "^2.0.9",
 		"next": "latest",
