@@ -27,3 +27,7 @@ export interface CarouselData {
 export interface CarouselState {
 	items: CarouselItem[];
 }
+
+export interface CarouselComponentProps {
+	items: CarouselItem[];
+}
