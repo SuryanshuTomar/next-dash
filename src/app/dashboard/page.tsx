@@ -7,6 +7,7 @@ import { getAuthSession, getAuthState } from "@/store/authSlice";
 import Loader from "@/components/Loader";
 import Header from "@/components/Header";
 import styles from "./page.module.scss";
+import ThreeDChart from "@/components/Charts/ThreedBarChart";
 
 export default function DashboardPage() {
 	const isAuthenticated = useAppSelector(getAuthState);
@@ -23,7 +24,10 @@ export default function DashboardPage() {
 			<Header />
 			{isAuthenticated === true && storedSession !== null ? (
 				<div className={styles.container}>
-					<div className={styles.content}>Dashboard</div>
+					<div className={styles.content}>
+						Dashboard
+						<ThreeDChart />
+					</div>
 				</div>
 			) : (
 				<Loader text="Dashboard" />
