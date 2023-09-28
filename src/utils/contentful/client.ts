@@ -2,8 +2,8 @@ import { createClient } from "contentful";
 import type { CarouselData, CarouselItem } from "../types";
 
 export const client = createClient({
-	space: "e7mzscsobclp",
-	accessToken: "vYXEUCHXRysIZozN2IIvXDvJIeVp7HGHD6QP7jpbSDI",
+	space: process.env.CONTENTFUL_SPACE_ID,
+	accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
 });
 
 export async function fetchCarouselItems(): Promise<CarouselItem[]> {
