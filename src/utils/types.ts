@@ -1,6 +1,19 @@
 import type { Session } from "next-auth";
 import type { ReactNode } from "react";
 
+// Type declaration for environment variables
+declare global {
+	namespace NodeJS {
+		interface ProcessEnv {
+			GOOGLE_CLIENT_ID: string;
+			GOOGLE_CLIENT_SECRET: string;
+			CONTENTFUL_ACCESS_TOKEN: string;
+			CONTENTFUL_SPACE_ID: string;
+			NEXTAUTH_SECRET: string;
+		}
+	}
+}
+
 export interface AuthState {
 	isAuthenticated: boolean;
 	session: Session | null;
